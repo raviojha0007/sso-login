@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const helmet = require("helmet");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const DBCONNECT = require("./database");
 require("dotenv").config();
 const cookieSession = require("cookie-session");
 
@@ -16,6 +17,8 @@ const api = require("./api");
 const passport = require("passport");
 
 const app = express();
+
+DBCONNECT();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
